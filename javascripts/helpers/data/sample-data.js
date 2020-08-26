@@ -143,3 +143,6 @@ const adventures = [
     healthHit: 60
   }
 ];
+
+
+export { dinos }
