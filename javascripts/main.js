@@ -1,8 +1,10 @@
-import { dinos } from './helpers/data/sample-data.js';
 import { makeDinoCards } from './components/makeDinoCard.js';
+import { getAllDinos } from './../javascripts/helpers/data/sample-data.js';
+
 
 const init = () => {
-    makeDinoCards(dinos);
+    makeDinoCards(getAllDinos());
 }
 
 init();
+
