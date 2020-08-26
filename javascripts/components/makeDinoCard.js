@@ -1,44 +1,38 @@
 //Need to import the array of dinosaurs
 
-const makeDinoCards = dinosaurs => {
+const makeDinoCards = (dinosaurs) => {
 
     dinosaurs.forEach((dinosaur) => {
 
-        switch (dinosaurs.health) {
-            case (dinosaurs.health === 0):
-                makeDinoCard(dinosaur, 'graveyard');
-                break;
-            case (dinosaurs.health < 33):
-                makeDinoCard(dinosaur, 'hospital');
-                break;
-            case (dinosaurs.health < 150):
-                makeDinoCard(dinosaur, 'kennel');
-                break;
-            default: makeDinoCard(dinosaur, 'kennel');
+        let health = dinosaur.health;
+        if (health > 50) {
+            makeDinoCard(dinosaur, 'kennelContainer');
+        } else if (health < 50 && health > 5) {
+            makeDinoCard(dinosaur, 'hospitalContainer');
+        } else if (health <= 5) {
+            makeDinoCard(dinosaur, 'graveyardContainer');
         }
-    }
+
+    });
 }
 
 const makeDinoCard = (dinosaur, livingquarters) => {
 
-    const template = `
-    <div class="card" style="width: 18rem;">
+    const template = `<div class="card" style="width: 18rem;">
         <img class="card-img-top" src="${dinosaur.imageUrl}" alt="">
             <div class="card-body">
                     <h5 class="dino-name">${dinosaur.name}</h5>
                     <div class="dino-health">${dinosaur.health}</div>
-                    <div id="buttons">
-                    <button id="eat">eat</button>
-                    <button id="pack">pack</button>
-                    <button id="display">display</button>
-                    <button id="delete">delete</button>
+                    <div id="buttons" class="d-flex flex-row flex-wrap">
+                    <button class="btn btn-outline-success" id="eat"><i class="fas fa-drumstick-bite"></i></button>
+                    <button class="btn btn-outline-warning" id="pack"><i class="fas fa-suitcase-rolling"></i></button>
+                    <button class="btn btn-outline-dark" id="display"><i class="far fa-eye"></i></button>
+                    <button class="btn btn-outline-danger" id="delete"><i class="far fa-trash-alt"></i></button>
                     </div>
             </div>
-    </div>
-    `
-
-    document.getElementById(`${livingquarters}`)
-        .append(template);
-
-
+    </div>`;
+    let div = document.getElementById(`${livingquarters}`);
+    div.insertAdjacentHTML('beforeend', template);
 }
+
+export { makeDinoCards }

@@ -143,3 +143,21 @@ const adventures = [
     healthHit: 60
   }
 ];
+
+
+
+const getAllDinos = () => {
+  return dinos;
+};
+
+
+const getAdventures = () => {
+  return adventures;
+};
+
+//Maybe I will need more, but this is all I can think
+//of for now.
+
+
+
+export { getAllDinos, getAdventures }

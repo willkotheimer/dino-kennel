@@ -1,0 +1,38 @@
+
+/*header*/
+
+#header {
+    background-color: black;
+}
+header h1 {
+    text-align: center;
+}
+
+#addDinosaur {
+    background-color: white;
+}
+
+#kennel {
+    background-color: white;
+}
+
+#hospital {
+    background-color: red;
+}
+
+#graveyard {
+    background-color: gray;
+}
+
+/*cards*/
+
+#buttons {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: row wrap;
+}
+
+#eat,#pack,#display,#delete {
+    margin: .5em;
+    min-width: 5em;
+}
