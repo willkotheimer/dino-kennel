@@ -144,7 +144,27 @@ const adventures = [
   }
 ];
 
+// const randomAdventure = () => {
+//   return adventures[Math.floor(Math.random()
+//     * Math.floor(adventures.length - 1))];
+// }
 
+// const sendOnAdventure = (e) => {
+//   const dino = e.target.id;
+//   console.log(dino);
+//   findDino(dino).adventures
+//     .push(randomAdventure().id);
+// }
+
+const deleteDino = (id) => {
+  dinos.splice(1, indexOf(findDino(id)));
+}
+
+
+const findDino = (myId) => {
+  return getAllDinos().find(dino =>
+    dino.id.includes(myId))
+}
 
 const getAllDinos = () => {
   return dinos;
@@ -155,9 +175,8 @@ const getAdventures = () => {
   return adventures;
 };
 
-//Maybe I will need more, but this is all I can think
-//of for now.
 
-
-
-export { getAllDinos, getAdventures }
+export {
+  getAllDinos, getAdventures, deleteDino,
+  findDino
+}
