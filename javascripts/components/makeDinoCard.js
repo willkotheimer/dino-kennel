@@ -26,7 +26,7 @@ const makeDinoCard = (dinosaur, livingquarters) => {
                     <div id="buttons" class="d-flex flex-row flex-wrap">
                     <button class="btn btn-outline-success" id="eat"><i class="fas fa-drumstick-bite"></i></button>
                     <button class="btn btn-outline-warning" id="pack"><i class="fas fa-suitcase-rolling"></i></button>
-                    <button class="btn btn-outline-dark" id="display" data-toggle="modal" data-target="#exampleModal"
+                    <button class="btn btn-outline-dark" id="display" data-toggle="modal" data-target="#displayModal"
                     data-whatever="${dinosaur.id}"><i class="far fa-eye"></i></button>
                     <button class="btn btn-outline-danger" id="delete"><i class="far fa-trash-alt"></i></button>
                     </div>
