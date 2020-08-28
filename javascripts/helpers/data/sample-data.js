@@ -5,7 +5,7 @@ const dinos = [
     type: 'T Rex',
     age: 100,
     owner: 'Jacob',
-    adventures: [],
+    adventures: [{ id: 'adventure1', date: 'February 23, 2020' }, { id: 'adventure2', date: 'February 23, 2020' }],
     health: 92,
     imageUrl: 'https://www.fieldandstream.com/resizer/8xkluKAxQZsEHJKj6qwyU0mLhTo=/760x448/filters:focal(458x270:459x271)/arc-anglerfish-arc2-prod-bonnier.s3.amazonaws.com/public/TQFN3CD5DAEM4DL2ACD42ZJ5E4.png'
   },
@@ -170,6 +170,38 @@ const getAllDinos = () => {
   return dinos;
 };
 
+const adventureData = (id) => {
+  let adventuredata = [];
+  const adventures = getAdventures();
+  const dinoadv = id.adventures;
+  if (dinoadv.length != 0) {
+    dinoadv.forEach((d, i) => {
+      const adventure = getAdventures().find(id => id = d.id);
+      adventuredata.push(
+        {
+          id: i,
+          adventure: adventure.title,
+          date: d.date,
+        });
+    });
+    return makeTableData(adventuredata);
+  } else {
+    return "<tr><td>No adventures to show</td></tr>"
+  }
+
+}
+
+const makeTableData = (adventuredata) => {
+  let myTable = ""
+  adventuredata.forEach(ad => {
+    myTable += `<tr>
+      <td>${ad.id}</td>
+      <td>${ad.adventure}</td>
+      <td>${ad.date}</td></tr>
+    `;
+  });
+  return myTable;
+}
 
 const getAdventures = () => {
   return adventures;
@@ -178,5 +210,5 @@ const getAdventures = () => {
 
 export {
   getAllDinos, getAdventures, deleteDino,
-  findDino
+  findDino, adventureData
 }

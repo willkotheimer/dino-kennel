@@ -1,4 +1,4 @@
-import { findDino } from './../helpers/data/sample-data.js';
+import { findDino, adventureData } from './../helpers/data/sample-data.js';
 
 const displayModal = () => {
     $('#exampleModal').on('show.bs.modal', function (event) {
@@ -9,8 +9,7 @@ const displayModal = () => {
         let dino = findDino(result);
         var modal = $(this)
         modal.find('.modal-title').text('Dino Profile')
-        console.log(dino.imageUrl);
-        modal.find('img.card-img-top').attr("src", dino.imageUrl);
+        modal.find('img.card-img-left').attr("src", dino.imageUrl);
         modal.find('.dino-name').text(dino.name)
         modal.find('.dino-type').text(dino.type)
         modal.find('.dino-age').text(dino.age)
@@ -18,6 +17,7 @@ const displayModal = () => {
         modal.find('.dino-health').attr("aria-valuenow", dino.health);
         modal.find('.dino-health').attr("style", `width:${dino.health}%;`);
         modal.find('.dino-health').text(dino.health)
+        modal.find('.dino-adventure-table').html(adventureData(dino));
 
 
     });

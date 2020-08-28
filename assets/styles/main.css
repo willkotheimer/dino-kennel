@@ -49,6 +49,13 @@ header h1 {
     height: auto !important;
     min-height: 100% !important;
 }
+
+.card-img-left {
+    max-width:50%;
+}
+.dino-details-right {
+    width: 50%;
+}
 /* .modal-dialog-full-width {
     width: 100% !important;
     height: 100% !important;

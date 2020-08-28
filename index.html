@@ -61,43 +61,36 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <img class="card-img-top" src="" alt="">
-                    <div class="card-body">
-                        <h5 class="dino-name"></h5>
-                        <div class="dino-type"></div>
-                        <div class="dino-age"></div>
-                        <div class="dino-owner"></div>
-                        <div class="progress">
-                            <div class="progress-bar-striped progress-bar bg-success dino-health" role="progressbar"
-                                style="" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
+
+                    <div class="card-body d-flex flex-wrap flex-row">
+
+                        <img class="card-img-left" src="" alt="">
+
+
+                        <div class="dino-details-right">
+                            <h5 class="dino-name"></h5>
+                            <div class="dino-type"></div>
+                            <div class="dino-age"></div>
+                            <div class="dino-owner"></div>
+                            <div class="progress">
+                                <div class="progress-bar-striped progress-bar bg-success dino-health" role="progressbar"
+                                    style="" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
                         </div>
+
 
                     </div>
                     <div class="modal-footer">
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>Firstname</th>
-                                    <th>Lastname</th>
-                                    <th>Email</th>
+                                    <th>#</th>
+                                    <th>Date</th>
+                                    <th>Type</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>John</td>
-                                    <td>Doe</td>
-                                    <td>john@example.com</td>
-                                </tr>
-                                <tr>
-                                    <td>Mary</td>
-                                    <td>Moe</td>
-                                    <td>mary@example.com</td>
-                                </tr>
-                                <tr>
-                                    <td>July</td>
-                                    <td>Dooley</td>
-                                    <td>july@example.com</td>
-                                </tr>
+                            <tbody class="dino-adventure-table">
+
                             </tbody>
                         </table>
                     </div>
