@@ -36,3 +36,38 @@ header h1 {
     margin: .5em;
     min-width: 5em;
 }
+
+/*Modal Styles*/
+
+.modal-dialogue {
+    width: 100% !important;
+    height: 100% !important;
+    max-width:none !important;
+}
+
+.modal-content {
+    height: auto !important;
+    min-height: 100% !important;
+}
+
+.card-img-left {
+    max-width:50%;
+}
+.dino-details-right {
+    width: 50%;
+}
+/* .modal-dialog-full-width {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width:none !important;
+
+}
+
+.modal-content-full-width  {
+    height: auto !important;
+    min-height: 100% !important;
+    border-radius: 0 !important;
+    background-color: #ececec !important 
+} */
