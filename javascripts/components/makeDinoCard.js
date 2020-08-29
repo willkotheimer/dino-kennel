@@ -2,6 +2,13 @@
 
 const makeDinoCards = (dinosaurs) => {
 
+    //clear dino cards:
+    $('#kennelContainer').html('');
+    $('#hospitalContainer').html('');
+    $('#graveyardContainer').html('');
+
+    //print all dino cards
+
     dinosaurs.forEach((dinosaur) => {
 
         let health = dinosaur.health;
@@ -16,7 +23,11 @@ const makeDinoCards = (dinosaurs) => {
     });
 }
 
+
+
 const makeDinoCard = (dinosaur, livingquarters) => {
+
+    //print each dino card:
 
     const template = `<div class="card" style="width: 18rem;">
         <img class="card-img-top" src="${dinosaur.imageUrl}" alt="">

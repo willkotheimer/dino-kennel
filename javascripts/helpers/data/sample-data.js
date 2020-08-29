@@ -37,7 +37,7 @@ const dinos = [
     owner: 'Abbey',
     adventures: [],
     health: 100,
-    imageUrl: ''
+    imageUrl: 'https://cdn.britannica.com/83/211283-131-3DB62136/Tyrannosaurus-Rex-Struthiomimus-dinosaurs.jpg'
   },
   {
     id: 'dino5',
@@ -210,5 +210,5 @@ const getAdventures = () => {
 
 export {
   getAllDinos, getAdventures, deleteDino,
-  findDino, adventureData
+  findDino, adventureData, dinos
 }

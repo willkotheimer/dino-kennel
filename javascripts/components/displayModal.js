@@ -22,8 +22,6 @@ const detailsModal = () => {
         } else if (button[0].id === 'addDinoButton') {
             //do something 
         }
-
-
     });
 
 }
