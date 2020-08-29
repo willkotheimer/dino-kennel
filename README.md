@@ -12,6 +12,12 @@ Vanilla Javascript ES6, Jquery, HTML5, CSS3
 
 ## Screenshots
 
+*Details Page*
+![](./screenshots/dinoScreenCapture.PNG)
+
+*Form Page*
+![](./screenshots/AddDinosaur.PNG)
+
 
 
 
