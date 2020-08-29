@@ -1,39 +1,99 @@
-# Dino Kennel
+# Week 7 - MILESTONE Project - DINO KENNEL
+This was a singular effort of each of us to build an app that would simulate a kind of sims game for dinosaurs
 
-## **NOTE:** You cannot start coding until your project board and tickets have been approved by an instructor
+## Motivation
+The motivation behind thi project was mainly to assess how far we had come in our development skills. It allowed me to use a lot of the concepts of modular development as well as javascript ES6 in building.
 
-## Description
-This project showcases all the vanilla javascript we learned in the foundations milestones.  It is designed to be a record keeping application for a dinosaur kennel.
+## Build status
+MVP complete.
 
-### Feature List
-- Healthy dinos show in the kennel
-- Sick dinos show in the hospital
-- Dead dinos show in the graveyard
-- Dinos can be removed from the kennel
-- Dinos can be added to the kennel
-- Dinos can be fed
-- Dinos can be petted
-- Dinos can be sent on an adventure
-
-## Technical Requirements
-* You must use [Boostrap](https://getbootstrap.com/) to style your page components.
-* Your JS file should be comprised of functions, no actions should happen in your code outside of a function
-* Your HTML and JS should all have proper indentations
-* You should be using ES6 modules
-* Your JS code should be formatted correctly!
+## Code Style
+Vanilla Javascript ES6, Jquery, HTML5, CSS3
 
 ## Screenshots
-### Full Page view
-![Main View](./screenshots/main.png)
 
-### Single Dino Modal
-![Single Dino Modal](./screenshots/single-dino.png)
 
-### Add New Dino
-![Add a Dino](./screenshots/add-dino.png)
 
-## How to Run
-1. Clone down this repo
-1. Make sure you have http-server installed via npm. If not get it [HERE](https://www.npmjs.com/package/http-server).
-1. On your command line run `hs -p 9999`
-1. In your browser go to `http://localhost:9999`
+
+
+## Features
+This site features a way to add dinosaurs, remove dinosaurs, add energy, send on adventures, and view dinosaur details
+
+## Code Example
+```
+import { findDinoByIndex, getAdventures } from './../helpers/data/sample-data.js'
+
+const sendOnAdventure = (index) => {
+    console.log(findDinoByIndex(index));
+    findDinoByIndex(index).adventures
+        .push({
+            id: randomAdventure(index).id, date: new Date().toLocaleDateString().split("/")
+        });
+
+}
+
+const randomAdventure = (index) => {
+    const myAdventures = getAdventures();
+    const myRandom = Math.floor(Math.random() * (myAdventures.length - 1));
+    const healthModifier = myAdventures[myRandom].healthHit;
+    console.log(healthModifier);
+    adventureHit(index, healthModifier)
+    return myAdventures[myRandom];
+}
+
+const adventureHit = (index, healthModifier) => {
+    findDinoByIndex(index).health -= healthModifier;
+    console.log("my" + index + "had" + healthModifier + "removed");
+}
+
+
+const adventureFunction = (id) => {
+    let adventuredata = [];
+    const adventures = getAdventures();
+    const dinoadv = id.adventures;
+    if (dinoadv.length != 0) {
+        dinoadv.forEach((d, index, array) => {
+
+
+            let adventure = getAdventures().find(dino => {
+
+                if (dino.id.includes(d.id)) {
+                    return dino;
+                };
+            });
+            console.log(adventure.title);
+            adventuredata.push(
+                {
+                    id: index,
+                    adventure: adventure.title,
+                    date: d.date
+                });
+        });
+        return makeTableData(adventuredata);
+    } else {
+        return "<tr><td>No adventures to show</td></tr>"
+    }
+
+}
+
+const makeTableData = (adventuredata) => {
+    let myTable = ""
+    adventuredata.forEach(ad => {
+        myTable += `<tr>
+        <td>${ad.id}</td>
+        <td>${ad.adventure}</td>
+        <td>${ad.date}</td>
+        </tr>
+        
+      `;
+    });
+    return myTable;
+}
+
+
+export { sendOnAdventure, adventureFunction }
+```
+## Github owner
+
+[Will Kotheimer](https://github.com/willkotheimer)
+
