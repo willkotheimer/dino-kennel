@@ -1,10 +1,10 @@
 //import { addDinos } from './../components/addDinoModal.js'
-import { getAllDinos, dinos } from './../helpers/data/sample-data.js'
+import { getAllDinos } from './../helpers/data/sample-data.js'
 import { makeDinoCards } from './../components/makeDinoCard.js'
 
 const makeDinoForm = () => {
 
-    $('.modal-body').append(`<form id="mydinoForm">
+    $('.modal-body .modal-form').append(`<form id="mydinoForm">
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="name">Name</label>
