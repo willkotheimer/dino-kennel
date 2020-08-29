@@ -24,32 +24,25 @@ const adventureHit = (index, healthModifier) => {
 }
 
 
-
-const filterIt = (arr, searchKey) => {
-    return arr.filter(ad => ad.title.includes(searchKey));
-}
-
-const findAdventureById = (myId) => {
-    return getAdventures().find(dino =>
-        dino.title.includes(myId))
-}
-
 const adventureFunction = (id) => {
     let adventuredata = [];
-    let adventure;
     const adventures = getAdventures();
     const dinoadv = id.adventures;
     if (dinoadv.length != 0) {
         dinoadv.forEach((d, index, array) => {
-            console.log(d);
-            console.log(adventures);
-            adventure = findAdventureById(d.id);
 
-            console.log(adventure);
+
+            let adventure = getAdventures().find(dino => {
+
+                if (dino.id.includes(d.id)) {
+                    return dino;
+                };
+            });
+            console.log(adventure.title);
             adventuredata.push(
                 {
                     id: index,
-                    adventure: adventure,
+                    adventure: adventure.title,
                     date: d.date
                 });
         });
