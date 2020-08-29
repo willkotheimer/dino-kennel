@@ -4,33 +4,34 @@ import { makeDinoCards } from './../components/makeDinoCard.js'
 
 const makeDinoForm = () => {
 
-    $('.modal-body .modal-form').append(`<form id="mydinoForm">
+    const theseDinos = getAllDinos();
+    $('.modal-form').append(`<form id="mydinoForm">
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+            <input type="text" class="form-control" id="dinoname" name="name" placeholder="Name">
         </div>
         <div class="form-group  col-md-6">
             <label for="owner">Owner</label>
-            <input type="text" class="form-control" id="owner" name="owner" placeholder="Owner">
+            <input type="text" class="form-control" id="dinoowner" name="owner" placeholder="Owner">
         </div>
 
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="age">Age</label>
-            <input type="text" class="form-control" id="age" name="age" placeholder="Age">
+            <input type="text" class="form-control" id="dinoage" name="age" placeholder="Age">
         </div>
         <div class="form-group col-md-6">
             <label for="image">Image</label>
-            <input type="text" class="form-control" name="image" id="image">
+            <input type="text" class="form-control" name="image" id="dinoimage">
         </div>
     </div>
 
     <div class="form-row">
         <div class="form-group input-sm"></div>
         <label for="type">Type</label>
-        <input type="text" class="form-control" id="type" name="type" placeholder="Type">
+        <input type="text" class="form-control" id="dinotype" name="type" placeholder="Type">
     </div>
 </div>
 
@@ -41,14 +42,15 @@ const makeDinoForm = () => {
 </div>
 </form>`).submit(function (e) {
         e.preventDefault();
-        const name = $('input#name')[1].value;
-        const imageUrl = $('input#image')[1].value
-        const owner = $('input#owner')[1].value
-        const age = $('input#age')[1].value
-        const type = $('input#type')[1].value
+        const name = $('#dinoname').val();
+        const imageUrl = $('#dinoimage').val();
+        const owner = $('#dinoowner').val();
+        const age = $('#dinoage').val();
+        const type = $('#dinotype').val();
         const id = `dino${getAllDinos().length}`;
 
-        dinos.push({
+        if (typeof getAllDinos().push === "function") { console.log('ima function') }
+        getAllDinos().push({
             id: id,
             name: name,
             type: type,
@@ -58,8 +60,13 @@ const makeDinoForm = () => {
             health: 100,
             imageUrl: imageUrl
         });
+
+
+        $('#addDinoModal').modal('toggle');
         makeDinoCards(getAllDinos());
+
     });;
+
 }
 
 export { makeDinoForm }
