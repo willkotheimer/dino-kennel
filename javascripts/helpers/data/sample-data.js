@@ -1,4 +1,6 @@
-const dinos = [
+import { makeDinoCards } from './../../components/makeDinoCard.js'
+
+let dinos = [
   {
     id: 'dino1',
     name: 'Rex',
@@ -144,64 +146,35 @@ const adventures = [
   }
 ];
 
-// const randomAdventure = () => {
-//   return adventures[Math.floor(Math.random()
-//     * Math.floor(adventures.length - 1))];
-// }
+//To add health via food or pet
 
-// const sendOnAdventure = (e) => {
-//   const dino = e.target.id;
-//   console.log(dino);
-//   findDino(dino).adventures
-//     .push(randomAdventure().id);
-// }
+const modifyHealth = (type, index) => {
 
-const deleteDino = (id) => {
-  dinos.splice(1, indexOf(findDino(id)));
+  switch (type) {
+    case 'feed': findDinoByIndex(index).health += 50;
+      break;
+    case 'pet': findDinoByIndex(index).health += 10;
+      break;
+    default:
+  }
 }
 
-
-const findDino = (myId) => {
+const findDinoByID = (myId) => {
   return getAllDinos().find(dino =>
     dino.id.includes(myId))
 }
+
+const findDinoByIndex = (index) => {
+  const theDinos = getAllDinos();
+  return theDinos[index];
+}
+
 
 const getAllDinos = () => {
   return dinos;
 };
 
-const adventureData = (id) => {
-  let adventuredata = [];
-  const adventures = getAdventures();
-  const dinoadv = id.adventures;
-  if (dinoadv.length != 0) {
-    dinoadv.forEach((d, i) => {
-      const adventure = getAdventures().find(id => id = d.id);
-      adventuredata.push(
-        {
-          id: i,
-          adventure: adventure.title,
-          date: d.date,
-        });
-    });
-    return makeTableData(adventuredata);
-  } else {
-    return "<tr><td>No adventures to show</td></tr>"
-  }
 
-}
-
-const makeTableData = (adventuredata) => {
-  let myTable = ""
-  adventuredata.forEach(ad => {
-    myTable += `<tr>
-      <td>${ad.id}</td>
-      <td>${ad.adventure}</td>
-      <td>${ad.date}</td></tr>
-    `;
-  });
-  return myTable;
-}
 
 const getAdventures = () => {
   return adventures;
@@ -209,6 +182,6 @@ const getAdventures = () => {
 
 
 export {
-  getAllDinos, getAdventures, deleteDino,
-  findDino, adventureData, dinos
+  getAllDinos, getAdventures,
+  findDinoByID, findDinoByIndex, modifyHealth
 }

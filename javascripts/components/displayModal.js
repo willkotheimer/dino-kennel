@@ -1,4 +1,5 @@
-import { findDino, adventureData } from './../helpers/data/sample-data.js';
+import { adventureFunction } from './../components/adventures.js';
+import { findDinoByID } from './../helpers/data/sample-data.js'
 
 const detailsModal = () => {
     $('#displayModal').on('show.bs.modal', function (event) {
@@ -7,7 +8,7 @@ const detailsModal = () => {
             var result = button.data('whatever') // Extract info from data-* attributes
             // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
             // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-            let dino = findDino(result);
+            let dino = findDinoByID(result);
             var modal = $(this)
             modal.find('.modal-title').text('Dino Profile')
             if (dino.imageUrl != undefined) modal.find('img.card-img-left').attr("src", dino.imageUrl);
@@ -18,7 +19,7 @@ const detailsModal = () => {
             modal.find('.dino-health').attr("aria-valuenow", dino.health);
             modal.find('.dino-health').attr("style", `width:${dino.health}%;`);
             modal.find('.dino-health').text(dino.health)
-            modal.find('.dino-adventure-table').html(adventureData(dino));
+            modal.find('.dino-adventure-table').html(adventureFunction(dino));
         } else if (button[0].id === 'addDinoButton') {
             //do something 
         }
