@@ -33,8 +33,12 @@ const makeDinoCard = (dinosaur, index, livingquarters) => {
     const template = `<div class="card" style="width: 18rem;">
         <img class="card-img-top" src="${dinosaur.imageUrl}" alt="">
             <div class="card-body">
+                    <div id="dino-innercard">
                     <h5 class="dino-name">${dinosaur.name}</h5>
                     <div class="dino-health">${dinosaur.health}</div>
+                    </div>
+                    <div>${(livingquarters === 'graveyardContainer') ? `<i class="fas fa-skull-crossbones"></i>` : ''}</div> 
+                    <div id="button-title">Quality of Life Controls:</div>
                     <div id="buttons" class="d-flex flex-row flex-wrap">
   
                     <button class="btn btn-outline-warning adventure" data-id="${index}" id="adventure-${index}"><i class="fas fa-suitcase-rolling"></i></button>
@@ -43,7 +47,7 @@ const makeDinoCard = (dinosaur, index, livingquarters) => {
                     <button class="btn btn-outline-danger delete" data-id="${index}" id="delete-${index}"><i class="far fa-trash-alt"></i></button>
                     <button class="btn btn-outline-success pet" data-id="${index}" id="pet-${index}"><i class="fal fa-hand-heart"></i></button>
                     <button class="btn btn-outline-success feed" data-id="${index}" id="feed-${index}"><i class="fas fa-drumstick-bite"></i></button>
-                    </div>
+                    </div$>
             </div>
     </div>`;
     let div = document.getElementById(`${livingquarters}`);
