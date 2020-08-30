@@ -18,7 +18,6 @@ Vanilla Javascript ES6, Jquery, HTML5, CSS3
 *Form Page*
 ![](./screenshots/AddDinosaur.PNG)
 
-
 ## URL
 
 [https://dinokennel.netlify.app/](https://dinokennel.netlify.app/)
