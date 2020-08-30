@@ -29,7 +29,7 @@ const adventureFunction = (id) => {
     const adventures = getAdventures();
     const dinoadv = id.adventures;
     if (dinoadv.length != 0) {
-        dinoadv.forEach((d, index, array) => {
+        dinoadv.forEach((d, index) => {
 
 
             let adventure = getAdventures().find(dino => {

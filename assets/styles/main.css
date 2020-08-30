@@ -127,3 +127,9 @@ header h1 {
    height: 30px;
    margin: 10px;
 }
+
+button#submit {
+    margin-top: 20px;
+}
+
+
