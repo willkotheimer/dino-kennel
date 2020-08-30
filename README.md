@@ -19,8 +19,11 @@ Vanilla Javascript ES6, Jquery, HTML5, CSS3
 ![](./screenshots/AddDinosaur.PNG)
 
 
+## URL
 
+[https://dinokennel.netlify.app/](https://dinokennel.netlify.app/)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3dc91665-6128-44d8-b9fa-9bf86ea09585/deploy-status)](https://app.netlify.com/sites/dinokennel/deploys)
 
 ## Features
 This site features a way to add dinosaurs, remove dinosaurs, add energy, send on adventures, and view dinosaur details
