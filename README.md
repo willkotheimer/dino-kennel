@@ -1,3 +1,4 @@
+
 # Week 7 - MILESTONE Project - DINO KENNEL
 This was a singular effort of each of us to build an app that would simulate a kind of sims game for dinosaurs
 
