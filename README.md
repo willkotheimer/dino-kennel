@@ -1,80 +1,108 @@
-
-# Week 6 - JS Array Methods
-This was an assignment to give us the opportunity to use different array methods. It was based on some use cases in a fictional business setting that would invole common uses of sorting, filtering and finding data. The methods used in this assignment were the following:
-
-1. `forEach()`
-1. `filter()`
-1. `map()`
-1. `find()`
-1. `reduce()`
-1. `sort()`
-
+# Week 7 - MILESTONE Project - DINO KENNEL
+This was a singular effort of each of us to build an app that would simulate a kind of sims game for dinosaurs
 
 ## Motivation
-The motivation for this assignment was to learn about these methods and how to use them. Some of them are not trivial to use and required knowing how to pass data parameters to make them work in the way that was intended. This helped me to build my skill in these areas and also get me a starting place for a working prototype for uses in later projects.
+The motivation behind thi project was mainly to assess how far we had come in our development skills. It allowed me to use a lot of the concepts of modular development as well as javascript ES6 in building.
 
 ## Build status
-MVP is complete. There are stretch goals in the assignment that may be added later as time allows.
+MVP complete.
 
 ## Code Style
-Jquery ES6, HTML5, CSS3
+Vanilla Javascript ES6, Jquery, HTML5, CSS3
 
 ## Screenshots
 
-![](./jqueryArraysMethods.gif)
+*Details Page*
+![](./screenshots/dinoScreenCapture.PNG)
+
+*Form Page*
+![](./screenshots/AddDinosaur.PNG)
+
 
 ## URL
 
-[https://jqueyarraymethods.netlify.app/](https://jqueyarraymethods.netlify.app/)
+[https://dinokennel.netlify.app/](https://dinokennel.netlify.app/)
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/1cc062e7-c31e-40a3-a2de-cb3e574cfdf0/deploy-status)](https://app.netlify.com/sites/jqueyarraymethods/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3dc91665-6128-44d8-b9fa-9bf86ea09585/deploy-status)](https://app.netlify.com/sites/dinokennel/deploys)
 
 ## Features
-Features to sort by business name, find business and a function that grabs particular data out of one array and maps data from another array for displaying.
+This site features a way to add dinosaurs, remove dinosaurs, add energy, send on adventures, and view dinosaur details
 
 ## Code Example
-```             
+```
+import { findDinoByIndex, getAdventures } from './../helpers/data/sample-data.js'
 
-const myPurchaseAgents = (businesses) => {
+const sendOnAdventure = (index) => {
+    console.log(findDinoByIndex(index));
+    findDinoByIndex(index).adventures
+        .push({
+            id: randomAdventure(index).id, date: new Date().toLocaleDateString().split("/")
+        });
 
-    const agents = $("#purchasingAgents")
-    agents.html('<h1>Purchasing Agents</h2>');
-    const purchasingAgents = businesses.map(business => {
-        return business.purchasingAgent;
-    });
-
-    console.table(purchasingAgents);
-
-    const myPurchaseAgents = businesses.map((agent) => {
-        return {
-            "fullName": agent.purchasingAgent.nameFirst + " " + agent.purchasingAgent.nameLast,
-            "company": agent.companyName,
-            "phoneNumber": agent.phoneWork,
-        }
-    }
-
-    );
-    myPurchaseAgents.forEach(myagent => {
-        agents.append(`
-        <section>
-        <div>${myagent['fullName']}</div>
-        <div>${myagent['company']}</div>
-        <div>${myagent['phoneNumber']}</div>
-        </section>`);
-
-    });
-
-
-
-    console.table(myPurchaseAgents);
-
-    agents.append(myPurchaseAgents);
-    agents.append("<hr/>")
 }
 
-export { myPurchaseAgents }
-```
-## The Team
-[Will Kotheimer](https://github.com/willkotheimer)
+const randomAdventure = (index) => {
+    const myAdventures = getAdventures();
+    const myRandom = Math.floor(Math.random() * (myAdventures.length - 1));
+    const healthModifier = myAdventures[myRandom].healthHit;
+    console.log(healthModifier);
+    adventureHit(index, healthModifier)
+    return myAdventures[myRandom];
+}
 
+const adventureHit = (index, healthModifier) => {
+    findDinoByIndex(index).health -= healthModifier;
+    console.log("my" + index + "had" + healthModifier + "removed");
+}
+
+
+const adventureFunction = (id) => {
+    let adventuredata = [];
+    const adventures = getAdventures();
+    const dinoadv = id.adventures;
+    if (dinoadv.length != 0) {
+        dinoadv.forEach((d, index, array) => {
+
+
+            let adventure = getAdventures().find(dino => {
+
+                if (dino.id.includes(d.id)) {
+                    return dino;
+                };
+            });
+            console.log(adventure.title);
+            adventuredata.push(
+                {
+                    id: index,
+                    adventure: adventure.title,
+                    date: d.date
+                });
+        });
+        return makeTableData(adventuredata);
+    } else {
+        return "<tr><td>No adventures to show</td></tr>"
+    }
+
+}
+
+const makeTableData = (adventuredata) => {
+    let myTable = ""
+    adventuredata.forEach(ad => {
+        myTable += `<tr>
+        <td>${ad.id}</td>
+        <td>${ad.adventure}</td>
+        <td>${ad.date}</td>
+        </tr>
+        
+      `;
+    });
+    return myTable;
+}
+
+
+export { sendOnAdventure, adventureFunction }
+```
+## Github owner
+
+[Will Kotheimer](https://github.com/willkotheimer)
 
